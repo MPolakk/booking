@@ -28,7 +28,7 @@ const NavBar = () => {
 
 
    return (
-      <div style={{ marginBottom: `${isDesktop ? '110px' : '70px'}` }}>
+      <div style={{ marginBottom: `${isDesktop ? '0px' : '70px'}` }}>
          {isDesktop ?
             (
 
@@ -41,8 +41,8 @@ const NavBar = () => {
                               <li key={el[1].namePL}>
                                  <Link to={el[1].path}>
                                     {scroll ?
-                                       <img alt="logo" src="\images\ico-logo-001.png" height='60px' /> :
-                                       <img alt="logo" src="\images\logo-vacanza-white.png" height='106px' />
+                                       <img alt="logo" src="\icons\ico-logo-001.png" height='60px' /> :
+                                       <img alt="logo" src="\icons\logo-vacanza-white.png" height='106px' />
 
                                     }
                                  </Link>
@@ -66,7 +66,7 @@ const NavBar = () => {
             ) : (
                <StyledNavBarMobile className={scroll ? 'minimize' : null}>
                   <Link to={url.home.path} style={{ padding: "10px" }}>
-                     <img alt="logo" src="\images\ico-logo-001.png" width={scroll ? '40px' : '50px'} />
+                     <img alt="logo" src="\icons\ico-logo-001.png" width={scroll ? '40px' : '50px'} />
                   </Link>
 
                   <StyledNavButton $scroll={scroll} onClick={() => setMenuActive(true)}>

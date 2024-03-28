@@ -17,7 +17,7 @@ export const basicTheme = {
     input: '13px',
     label: '10px',
     footer: '13px',
-    titleH2small: '27px',
+    titleH2small: '25px',
     titleH2big: '40px',
     titleH3: '30px',
     titleH4small: '16px',

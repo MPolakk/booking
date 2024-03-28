@@ -8,6 +8,7 @@ const StyledNavBar = styled.div`
    height: ${({ className }) => className === 'minimize' ? '60px' : '110px'};
    width: 100%;
    transition: height .4s;
+   z-index: 10;
    & > ul {
       display: flex;
       justify-content: center;
@@ -49,6 +50,7 @@ const StyledNavBarMobile = styled.div`
    height: ${({ className }) => className === 'minimize' ? '60px' : '70px'};
    transition: height .4s;
    overflow: hidden;
+   z-index: 10;
    img {
       transition: width .2s;
    }

@@ -53,8 +53,13 @@ export const lightTheme = {
     text: '#7b7b7b'
 
   },
+  main: {
+    bg: '#f3f3f3',
+    bg2: '#fff'
+  },
   footer: {
-    bg: '#252628'
+    bg: '#252628',
+    text: '#ffffff99'
   }
 
 };
