@@ -1,23 +1,25 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Page } from './Dashboard.styled';
+import { Page, StyledFooter, StyledHeader } from './Dashboard.styled';
 import { SwitchDarkMode } from '../components/elements';
 import NavBar from '../components/elements/NavBar/NavBar';
 const Dashboard = () => {
 
   return (
     <Page>
-      <header>
+      <StyledHeader>
         <NavBar></NavBar>
-      </header>
-      <main style={{ flex: 1 }}>
-        {/* <SwitchDarkMode /> */}
-
+      </StyledHeader>
+      <main>
         <Suspense>
           <Outlet />
         </Suspense>
       </main>
-      <footer>contact place</footer>
+      <StyledFooter>
+        <img src="\icons\ico-logo-001.png" alt="" />
+        <span>© Vacanza Park. All rights reserved.</span>
+      </StyledFooter>
+
     </Page>
   );
 };
