@@ -3,7 +3,6 @@ import { StyledCottages, StyledHeader, StyledCard, StyledSlider, StyledFlipCards
 import FlipCard from "../components/elements/FlipCards/FlipCard";
 import Description from "../components/elements/Description/Description";
 import SocialMedia from "../components/elements/SocialMedia/SocialMedia";
-import ImageGallery from "react-image-gallery";
 import Slider from 'react-slick'
 import { useMedia } from "../hooks/useMedia";
 const Cottages = () => {
