@@ -1,6 +1,10 @@
 import { StyledFlipCardContainer, StyledFlipCard } from "./FlipCard.styled";
 import { useState, useRef } from "react";
+import { useMedia } from "../../../hooks/useMedia";
+
 const FlipCard = ({ rotateValueX, rotateValueY, text, header, imgsrc }) => {
+
+   const { isDesktop } = useMedia();
    const [rotateActive, setRotateActive] = useState(false);
    const idRef = useRef(null);
    const rotateHandler = () => {
@@ -10,10 +14,14 @@ const FlipCard = ({ rotateValueX, rotateValueY, text, header, imgsrc }) => {
          setRotateActive(false)
       }, 3000)
    }
+   const rotateHandlerDesktop = () => {
+      setRotateActive(!rotateActive);
+   }
+
 
    return (
-      <StyledFlipCardContainer>
-         <StyledFlipCard imgsrc={imgsrc} style={rotateActive ? (rotateValueX ? { transform: `rotateX(${rotateValueX}deg)` } : { transform: `rotateY(${rotateValueY}deg)` }) : null} onClick={rotateHandler}>
+      <StyledFlipCardContainer onClick={!isDesktop ? rotateHandler : null} onMouseEnter={isDesktop ? rotateHandlerDesktop : null} onMouseLeave={isDesktop ? rotateHandlerDesktop : null}>
+         <StyledFlipCard imgsrc={imgsrc} style={rotateActive ? (rotateValueX ? { transform: `rotateX(${rotateValueX}deg)` } : { transform: `rotateY(${rotateValueY}deg)` }) : null}  >
 
             <div className="flipcard-front">
                <h2>{header}</h2>

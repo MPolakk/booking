@@ -5,18 +5,28 @@ background-color: transparent;
 height: 260px;
 width: 100%;
 perspective: 1000px;
-margin-top: -20px;
 overflow: hidden;
+@media (min-width: ${({ theme }) => theme.mbp.desktop}px) {
+            width: 300px;
+            height: 300px;
+            transform: translateY(-30px);
+            z-index: 25;
+         }
 `
 
 export const StyledFlipCard = styled.div`
    position: relative;
-   width: 100vw;
+   width: 100%;
    height: 100%;
    text-align: center;
    transition: transform 0.8s;
    transform-style: preserve-3d;
+   
+   
    .flipcard-front {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
       width: 100%;
       height: 100%;
       padding: 50px;
