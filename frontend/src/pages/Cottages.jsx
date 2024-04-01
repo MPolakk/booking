@@ -4,84 +4,25 @@ import FlipCard from "../components/elements/FlipCards/FlipCard";
 import Description from "../components/elements/Description/Description";
 import SocialMedia from "../components/elements/SocialMedia/SocialMedia";
 import ImageGallery from "react-image-gallery";
+import Slider from 'react-slick'
+import { useMedia } from "../hooks/useMedia";
 const Cottages = () => {
-  const images = [
-    {
-      original: "images/cottages-gallery/vacanza-gallery-001-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-002-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-003-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-004-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-005-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-006-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-007-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-009-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-010-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-011-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-012-1-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-013-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-014-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-015-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-016-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-017-900x600.jpg",
-      originalWidth: "100%"
-    },
-    {
-      original: "images/cottages-gallery/vacanza-gallery-018-900x600.jpg",
-      originalWidth: "100%"
-    },
+  const { isDesktop } = useMedia()
+  const slides = isDesktop ? 4 : 1;
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: slides,
+    slidesToScroll: 1,
+    swipeToSlide: true,
 
-  ];
+  };
 
   const [imgMove, setImgMove] = useState(0);
 
 
   const getWindowHeight = () => {
-    if (window.scrollY * 0.1 < 30) {
+    if (window.scrollY * 0.1 < 300) {
       setImgMove(window.scrollY * 0.1)
     }
   }
@@ -101,27 +42,78 @@ const Cottages = () => {
           <h6 style={{ marginTop: `${imgMove}px` }}>Wyjątkowe</h6>
           <h2 style={{ marginTop: `${imgMove}px` }}><span>7 domków</span> w stylu skandynawskim</h2>
         </div>
-        <div style={{ marginTop: `${imgMove}px` }}>
-          <img src="\images\background\domek-vacanza-dwu-poziomowe-mobile-02.jpg" alt="" />
+        <div style={{ marginTop: `${!isDesktop ? imgMove : imgMove - 50 * 2}px` }}>
+          {!isDesktop ?
+            < img src="\images\background\domek-vacanza-dwu-poziomowe-mobile-02.jpg" alt="" /> :
+            (<div>
+              < img src="\images\background\domek-vacanza-dwu-poziomowe-06.jpg" alt="" />
+              <div></div>
+            </div>)}
+
         </div>
         <StyledCard>
-          <h6>nasze domki są</h6>
-          <h2>dwupoziomowe z łączną <span>powierzchnią 70 mkw.</span></h2>
+          <div>
+            <h6>nasze domki są</h6>
+            <h2>dwupoziomowe z łączną <span>powierzchnią 70 mkw.</span></h2>
+          </div>
         </StyledCard>
       </StyledHeader>
       <StyledSlider>
-        <ImageGallery
-          infinite={true}
-          showNav={false}
-          items={images}
-          showPlayButton={false}
-          showFullscreenButton={false}
-          showThumbnails={false}
-          autoPlay={true}
-          slideDuration={600}
-          slideInterval={5000}
-        />
+        <Slider {...settings}>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-001-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-002-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-003-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-004-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-005-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-006-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-007-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-009-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-010-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-011-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-012-1-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-013-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-014-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-015-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-016-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-017-900x600.jpg" />
+          </div>
+          <div>
+            <img src="images/cottages-gallery/vacanza-gallery-018-900x600.jpg" />
+          </div>
+        </Slider>
       </StyledSlider>
+
       <StyledFlipCards>
         <FlipCard
           rotateValueX={-180}
