@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useImgMove } from "../hooks/useImgMove";
 import { StyledCottages, StyledHeader, StyledCard, StyledSlider, StyledFlipCards, StyledBlankSpace } from "./Cottages.styled";
 import FlipCard from "../components/elements/FlipCards/FlipCard";
 import Description from "../components/elements/Description/Description";
 import SocialMedia from "../components/elements/SocialMedia/SocialMedia";
+import HeaderBackground from '../components/elements/HeaderBackground/HeaderBackground';
 import Slider from 'react-slick'
 import { useMedia } from "../hooks/useMedia";
 const Cottages = () => {
@@ -16,31 +17,12 @@ const Cottages = () => {
     swipeToSlide: true,
 
   };
-
-  const [imgMove, setImgMove] = useState(0);
-
-
-  const getWindowHeight = () => {
-    if (window.scrollY * 0.1 < 300) {
-      setImgMove(window.scrollY * 0.1)
-    }
-  }
-  useEffect(() => {
-    window.addEventListener('scroll', getWindowHeight)
-
-    return () => {
-      window.removeEventListener('scroll', getWindowHeight)
-    }
-  }, [getWindowHeight])
+  const imgMove = useImgMove();
 
   return (
     <StyledCottages>
       <StyledHeader>
-        <div>
-          <img src="\images\background\domek-vacanza-dwu-poziomowe-01a.jpg" alt="" />
-          <h6 style={{ marginTop: `${imgMove}px` }}>Wyjątkowe</h6>
-          <h2 style={{ marginTop: `${imgMove}px` }}><span>7 domków</span> w stylu skandynawskim</h2>
-        </div>
+        <HeaderBackground text1="Wyjątkowe" text2="w stylu skandynawskim" span="7 domków" img="\images\background\domek-vacanza-dwu-poziomowe-01a.jpg" />
         <div style={{ marginTop: `${!isDesktop ? imgMove : imgMove - 50 * 2}px` }}>
           {!isDesktop ?
             < img src="\images\background\domek-vacanza-dwu-poziomowe-mobile-02.jpg" alt="" /> :
@@ -60,55 +42,55 @@ const Cottages = () => {
       <StyledSlider>
         <Slider {...settings}>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-001-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-001-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-002-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-002-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-003-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-003-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-004-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-004-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-005-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-005-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-006-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-006-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-007-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-007-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-009-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-009-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-010-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-010-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-011-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-011-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-012-1-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-012-1-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-013-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-013-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-014-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-014-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-015-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-015-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-016-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-016-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-017-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-017-900x600.jpg" alt="" />
           </div>
           <div>
-            <img src="images/cottages-gallery/vacanza-gallery-018-900x600.jpg" />
+            <img src="images/cottages-gallery/vacanza-gallery-018-900x600.jpg" alt="" />
           </div>
         </Slider>
       </StyledSlider>

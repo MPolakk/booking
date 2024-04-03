@@ -33,7 +33,6 @@ const NavBar = () => {
             (
 
                <StyledNavBar className={scroll ? 'minimize' : null}>
-                  {console.log(scroll)}
                   <ul>
                      {Object.keys(url).map(key => [key, url[key]]).map((el) => {
                         if (el[1].path === '/') {
